@@ -1,0 +1,20 @@
+{
+  "name": "Sweet-Socialistic-Social-Network-API",
+  "version": "1.0.0",
+  "description": "Social Networking API - Mongoose back end project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.3",
+    "mongodb": "^4.4.1",
+    "mongoose": "^6.2.7"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
