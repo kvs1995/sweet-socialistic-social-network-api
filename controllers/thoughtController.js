@@ -1,5 +1,5 @@
 //import Thought and Thought models from model file
-const { Thought, Thought } = require('../models');
+const { User, Thought } = require('../models');
 //module.exports = {}
 module.export = {
   //GET to get all thoughts
@@ -43,3 +43,5 @@ module.export = {
   // DELETE to pull and remove a reaction by the reaction's reactionId value. 
 
 }
+
+// module.exports

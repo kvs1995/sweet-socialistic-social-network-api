@@ -2,4 +2,4 @@
 const User = require('./User')
 const Thought = require('./Thought')
 //export
-moddule.exports = { Student, Course }
+module.exports = { User, Thought }

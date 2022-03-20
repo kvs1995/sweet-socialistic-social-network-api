@@ -1,7 +1,9 @@
 //import router = express().Rouer()
 const router = require('express').Router();
 //import the controllers made fro teh user
-const { getUsers, getSingleUser, createUser, } = require('../../controllers/userController');
+const { getUsers,
+   getSingleUser, 
+   createUser, } = require('../../controllers/userController');
 
 //create the routes
 

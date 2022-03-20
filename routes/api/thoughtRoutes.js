@@ -7,10 +7,10 @@ const { getThoughts , getSingleThought, createThought , } = require('../../contr
 
 /*///////  /api/thoughts/ ///////*/ 
   // .get Get Thoughts, .post Create Thought
-router.route('/').get(getUsers).post(createUser);
+router.route('/').get(getThoughts).post(createThought);
 
 /*///////  /api/users/:thoughtId ///////*/ 
-router.route('/:thoughtId').get(getSingleUser);
+router.route('/:thoughtId').get(getSingleThought);
 
 //module exports
 
