@@ -31,7 +31,7 @@ const userSchema = new Schema(
     //list of _id values referencing the User model (self-reference)
       {
         type: Schema.Types.ObjectId,
-        ref: 'Friend',
+        ref: 'User',
       },
     ],
   },
@@ -40,6 +40,8 @@ const userSchema = new Schema(
     toJSON: {
       virtuals: true,
     },
+    id: false,
+    versionKey:false,
   }
 );
 

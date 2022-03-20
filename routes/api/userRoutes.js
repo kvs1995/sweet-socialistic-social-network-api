@@ -1,9 +1,7 @@
 //import router = express().Rouer()
 const router = require('express').Router();
 //import the controllers made fro teh user
-const { getUsers,
-   getSingleUser, 
-   createUser, } = require('../../controllers/userController');
+const { getUsers, getSingleUser, createUser, updateUser, } = require('../../controllers/userController');
 
 //create the routes
 
@@ -12,7 +10,7 @@ const { getUsers,
 router.route('/').get(getUsers).post(createUser);
 
 /*///////  /api/users/:userId ///////*/ 
-router.route('/:userId').get(getSingleUser);
+router.route('/:userId').get(getSingleUser).put(updateUser);
 
 //module exports
 
