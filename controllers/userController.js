@@ -1,7 +1,7 @@
 // import User and Thought models from the model fikles
 const { User, Thought } = require('../models');
 //module.export = 
-module.export = {
+module.exports = {
   // GET all users
   getUsers(req,res) {
     User.find()

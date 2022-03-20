@@ -1,7 +1,7 @@
 //import Thought and Thought models from model file
 const { User, Thought } = require('../models');
 //module.exports = {}
-module.export = {
+module.exports = {
   //GET to get all thoughts
   getThoughts(req,res) {
     Thought.find()
@@ -28,7 +28,7 @@ module.export = {
       User.findOneAndUpdate(
         { id: req.params.userId },
         { $addToSet: { thoughts: thought } },
-        { runValidators: true, new: true }
+        { new: true }
     ))
     .then ((dbThoughtData) => res.json(dbThoughtData))
     .catch((err) => res.status(500).json(err));
