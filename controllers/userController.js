@@ -43,10 +43,18 @@ module.exports = {
         console.log(err);
         res.status(500).json(err);
       });  
-  }
+  },
   // DELETE to remove user by its _id. 
-
-
+  deleteUser(req, res) {
+    User.findOneAndDelete({ _id: req.params.userId })
+      .then((user) =>
+        !user
+          ? res.status(404).json({ message: 'No user with that ID' })
+          : Thought.deleteMany({ _id: { $in: user.thoughts } })
+      )
+      .then(() => res.json({ message: 'User and thoughts deleted!' }))
+      .catch((err) => res.status(500).json(err));
+  },
 /*////////////////////// /api/user/:userId/friends/:friendId/ / //////////////////////*/
 
   // POST to add a new friend to a user's frend list
