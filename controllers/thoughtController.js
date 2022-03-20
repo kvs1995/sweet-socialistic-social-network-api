@@ -13,8 +13,7 @@ module.exports = {
   //GET to get a single thought by its _id.
   getSingleThought(req,res) {
     Thought.findOne({ _id: req.params.thoughtId})
-    .populate('thoughts')
-    .populate('friends')
+    .select('-__v')
     .then((thought) => 
       !thought 
         ? res.status(404).jon({ message: 'No thought with that Id!'})
@@ -26,15 +25,31 @@ module.exports = {
     Thought.create(req.body)
     .then((thought) => 
       User.findOneAndUpdate(
-        { id: req.params.userId },
+        { username: req.body.username },
         { $addToSet: { thoughts: thought } },
-        { new: true }
+        { runValidators: true, new: true }
     ))
     .then ((dbThoughtData) => res.json(dbThoughtData))
     .catch((err) => res.status(500).json(err));
-  }
+  },
   // PUT to update a thought by its _id.
 
+  updateThought(req, res) {
+    Thought.findOneAndUpdate(
+      { _id: req.params.thoughtId },
+      { $set: req.body }, 
+      { new: true } 
+    )
+      .then((thought) => 
+        !thought
+          ? res.status(404).json({ message: 'No thought with this id!' })
+          : res.json(thought)
+      )
+      .catch((err) => {
+        console.log(err);
+        res.status(500).json(err);
+      });  
+  }
   // DELETE to remove a thoguht by its _id. 
 
   /*////////////////////// /api/thoughts/:thoughtId/reactions/ //////////////////////*/

@@ -64,4 +64,4 @@ const thoughts = [
 // //get random thoughts
 // const getRandomThought = () =>
 //  `${getRandomArrItem(thoughts)} ${getRandomArrItem(thoughts)}`;
-module.exports =  { users }
+module.exports =  { users, thoughts }
