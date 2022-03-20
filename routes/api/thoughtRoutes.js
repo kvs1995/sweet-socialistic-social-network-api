@@ -1,7 +1,7 @@
 //import router = express().Rouer()
 const router = require('express').Router();
 //import the controllers made fro teh user
-const { getThoughts , getSingleThought, createThought , } = require('../../controllers/thoughtController');
+const { getThoughts , getSingleThought, createThought , updateThought } = require('../../controllers/thoughtController');
 
 //create the routes
 
@@ -10,7 +10,7 @@ const { getThoughts , getSingleThought, createThought , } = require('../../contr
 router.route('/').get(getThoughts).post(createThought);
 
 /*///////  /api/users/:thoughtId ///////*/ 
-router.route('/:thoughtId').get(getSingleThought);
+router.route('/:thoughtId').get(getSingleThought).put(updateThought);
 
 //module exports
 
